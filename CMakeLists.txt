@@ -77,11 +77,11 @@ set(INSTALLED_LIBRARIES)
 # Android only.
 if(ANDROID)
   include_directories(${ANDROID_NDK}/sources/android/cpufeatures)
-  add_library(cpufeatures STATIC
+  add_library(cpufeatures-libwebp STATIC
               ${ANDROID_NDK}/sources/android/cpufeatures/cpu-features.c)
-  list(APPEND INSTALLED_LIBRARIES cpufeatures)
-  target_link_libraries(cpufeatures dl)
-  set(WEBP_DEP_LIBRARIES ${WEBP_DEP_LIBRARIES} cpufeatures)
+  list(APPEND INSTALLED_LIBRARIES cpufeatures-libwebp)
+  target_link_libraries(cpufeatures-libwebp dl)
+  set(WEBP_DEP_LIBRARIES ${WEBP_DEP_LIBRARIES} cpufeatures-libwebp)
   set(WEBP_DEP_INCLUDE_DIRS ${WEBP_DEP_INCLUDE_DIRS}
       ${ANDROID_NDK}/sources/android/cpufeatures)
   add_definitions(-DHAVE_CPU_FEATURES_H=1)
